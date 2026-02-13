@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <!-- Importing cute Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Floating Background Hearts -->
+    <div id="hearts-container"></div>
+
+    <div class="glass-card">
+        
+        <!-- Question View -->
+        <div id="question-view" class="flex-col">
+            <div class="image-wrapper">
+                <img 
+                    src="https://media1.tenor.com/m/BxibqUT9-I0AAAAd/dudu-flower.gif" 
+                    alt="Bear asking" 
+                    class="main-img"
+                />
+            </div>
+
+            <h1>Will you be my Valentine?</h1>
+
+            <div class="btn-container">
+                <button id="yes-btn">Yes</button>
+                <button id="no-btn">No</button>
+            </div>
+        </div>
+
+        <!-- Success View (Hidden by default) -->
+        <div id="success-view" class="hidden flex-col">
+            <div class="image-wrapper animate-bounce">
+                <img 
+                    src="https://media.tenor.com/gUiu1zyxfzYAAAAj/bear-kiss-bear-kisses.gif" 
+                    alt="Bears Kissing" 
+                    class="main-img" 
+                />
+            </div>
+            
+            <h1 class="animate-scale-in success-title">
+                Yay!!! I love you! <br/> Happy Valentine's Day!
+            </h1>
+            <p class="success-text">
+                (I knew you'd say yes! ❤️)
+            </p>
+        </div>
+
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

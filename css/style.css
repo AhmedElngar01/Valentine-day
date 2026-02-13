@@ -1,0 +1,256 @@
+/* Extracted from love.html */
+
+/* Base Styles */
+body {
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* Cute pastel gradient background */
+    background: linear-gradient(135deg, #fce7f3 0%, #ffe4e6 50%, #fecdd3 100%);
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+::selection {
+    background-color: #f43f5e;
+    color: white;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 2rem;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 3rem 2rem;
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+/* Typography */
+h1 {
+    font-family: 'Indie Flower', cursive;
+    font-size: 2.5rem;
+    color: #d12e56; /* Deep Rose */
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    margin-top: 0;
+    text-shadow: 2px 2px 0px rgba(255,255,255,0.5);
+}
+
+p {
+    font-size: 1.25rem;
+    color: #9f1239;
+    margin: 0;
+    font-weight: 700;
+}
+
+/* Images */
+.image-wrapper {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.main-img {
+    border-radius: 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    width: 250px;
+    max-width: 100%;
+    border: 4px solid white;
+}
+
+.main-img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* Buttons */
+.btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    border-radius: 50px; /* Pill shape */
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:hover {
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#yes-btn {
+    background: linear-gradient(to bottom right, #4ade80, #22c55e);
+    font-size: 1.25rem;
+    padding: 1rem 2.5rem;
+    z-index: 20;
+}
+
+#yes-btn:hover {
+    background: linear-gradient(to bottom right, #86efac, #22c55e);
+}
+
+#no-btn {
+    background: linear-gradient(to bottom right, #fb7185, #f43f5e);
+    padding: 1rem 2.5rem;
+    font-size: 1.25rem;
+    z-index: 10;
+}
+
+#no-btn:hover {
+    background: linear-gradient(to bottom right, #fda4af, #f43f5e);
+}
+
+/* Hearts Background */
+#hearts-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.heart-icon {
+    position: absolute;
+    color: #fff;
+    opacity: 0.6;
+    filter: drop-shadow(0 0 5px rgba(255, 182, 193, 0.8));
+}
+
+/* Particle/Confetti Styles */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Utilities */
+.hidden {
+    display: none !important;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Animations */
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(-10%); animation-timing-function: cubic-bezier(0.8,0,1,1); }
+    50% { transform: none; animation-timing-function: cubic-bezier(0,0,0.2,1); }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-bounce {
+    animation: bounce 1s infinite;
+}
+
+/* Success view styles moved from inline */
+.success-title {
+    font-size: 2.2rem;
+    color: #db2777;
+}
+
+.success-text {
+    color: #be185d;
+}
+
+/* Responsive rules */
+@media (max-width: 600px) {
+    .glass-card {
+        padding: 1.5rem 1rem;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .main-img {
+        width: 180px;
+        border-width: 3px;
+    }
+
+    #yes-btn, #no-btn {
+        font-size: 1rem;
+        padding: 0.75rem 1.25rem;
+    }
+
+    .btn-container {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    /* Keep hearts lighter on small screens */
+    .heart-icon { opacity: 0.5; }
+
+    .success-title { font-size: 1.6rem; }
+    .success-text { font-size: 1rem; }
+}
+
+@media (min-width: 1200px) {
+    .glass-card {
+        max-width: 700px;
+        padding: 4rem 3rem;
+    }
+
+    h1 { font-size: 3rem; }
+
+    .main-img { width: 320px; }
+
+    #yes-btn, #no-btn { font-size: 1.2rem; padding: 1rem 3rem; }
+}
